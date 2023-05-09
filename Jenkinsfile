@@ -1,9 +1,5 @@
 pipeline {
-	agent none
-
-	triggers {
-		pollSCM 'H/10 * * * *'
-	}
+	agent Agent1
 
 	options {
 		disableConcurrentBuilds()
@@ -13,10 +9,7 @@ pipeline {
 	stages {
 		stage("test: baseline (jdk8)") {
 			agent {
-				docker {
-					image 'adoptopenjdk/openjdk8:latest'
-					args '-v $HOME/.m2:/tmp/jenkins-home/.m2'
-				}
+				Agent1
 			}
 			options { timeout(time: 30, unit: 'MINUTES') }
 			steps {
