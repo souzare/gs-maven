@@ -1,5 +1,7 @@
 pipeline {
-	agent Agent1
+	agent {
+		Agent1
+	}
 
 	options {
 		disableConcurrentBuilds()
