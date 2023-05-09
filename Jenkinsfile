@@ -1,7 +1,7 @@
 pipeline {
 	agent {
-		Agent1
-	}
+  	label 'Agent1'
+    }
 
 	options {
 		disableConcurrentBuilds()
@@ -11,8 +11,8 @@ pipeline {
 	stages {
 		stage("test: baseline (jdk8)") {
 			agent {
-				Agent1
-			}
+  				label 'Agent1'
+    				}
 			options { timeout(time: 30, unit: 'MINUTES') }
 			steps {
 				sh 'test/run.sh'
